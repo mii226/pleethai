@@ -1,24 +1,43 @@
+# dictionary_thai_forjocv  
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Thai dictionary site for JOCV.   
+
+## Preparing
+### Laungage
+[Ruby](https://www.ruby-lang.org/)
+
+### Framework
+[Rails on Ruby](http://rubyonrails.org/)
+
+### IDE
+[Cloud9](https://c9.io)
+
+## Verify environment and version
+Following [Gemfile](Gemfile)
+
+ * ransack  
+"Search form" packag : For Serching fuction  
+[https://github.com/activerecord-hackery/ransack](https://github.com/activerecord-hackery/ransack)
+
+ * kaminari  
+pagination package : For List view  
+[https://github.com/amatsuda/kaminari](https://github.com/amatsuda/kaminari)
+
+ * acts-as-taggable-on  
+Tag management Package : For Tag function
+[https://github.com/mbleigh/acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)
+
+ * paperclip  
+File uplosd function package : for Import function
+[https://github.com/thoughtbot/paperclip](https://github.com/thoughtbot/paperclip)
+
+* bootstrap_form
+Input form package : For Resistration fuction  
+[https://github.com/bootstrap-ruby/rails-bootstrap-forms](https://github.com/bootstrap-ruby/rails-bootstrap-forms)
+
+ * gem annotate
+Output schema of DB and rooting information : for Developers
+[https://github.com/ctran/annotate_models](https://github.com/ctran/annotate_models)
 
 
-Welcome to your Rails project on Cloud9 IDE!
 
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://dictionary-thai-forjocv-familycomputer59.c9users.io/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
