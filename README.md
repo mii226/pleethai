@@ -29,13 +29,13 @@ Tag management Package : For Tag function
 [https://github.com/mbleigh/acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)  
 
  * paperclip  
-File uplosd function package : for Import function  
+File uplosd function package : For Import function  
 [https://github.com/thoughtbot/paperclip](https://github.com/thoughtbot/paperclip)  
 
 * bootstrap_form
 Input form package : For Resistration fuction  
 [https://github.com/bootstrap-ruby/rails-bootstrap-forms](https://github.com/bootstrap-ruby/rails-bootstrap-forms)  
 
- * gem annotate
-Output schema of DB and rooting information : for Developers  
+* gem annotate
+Output schema of DB and rooting information : For Developers  
 [https://github.com/ctran/annotate_models](https://github.com/ctran/annotate_models)  
