@@ -3,15 +3,16 @@
 Thai dictionary site for JOCV.   
 
 ## Preparing  
+Befor starting development you shuld learn following  
 ### Laungage  
-[Ruby](https://www.ruby-lang.org/)  
+* [Ruby](https://www.ruby-lang.org/)  
 
 ### Framework  
-[Rails on Ruby](http://rubyonrails.org/)  
-[Bootstrap](http://getbootstrap.com/)  
+* [Rails on Ruby](http://rubyonrails.org/)  
+* [Bootstrap](http://getbootstrap.com/)  
 
 ### IDE  
-[Cloud9](https://c9.io)  
+* [Cloud9](https://c9.io)  
 
 ## Verify environment and version  
 Following [Gemfile](Gemfile)  
