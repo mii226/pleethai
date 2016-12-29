@@ -1,0 +1,22 @@
+<h1>New</h1>
+<p>TBD</p>
+<%= form_for @word do |f| %>
+   <div>
+     <%= f.text_field :japanese %>
+   </div>
+   <div>
+     <%= f.select :part_of_speech, Word.part_of_speeches.keys %>
+   </div>
+   <div>
+     <%= f.text_field :thai %>
+   </div>
+   <div>
+     <%= f.select :verbal_system, Word.verbal_systems.keys %>
+   </div>
+   <div>
+     <%= f.text_area :remarks %>
+   </div>
+   <div>
+      <%= f.submit "送信" %>
+   </div>
+<% end %>
