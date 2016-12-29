@@ -1,0 +1,22 @@
+<div>
+    <%= search_form_for @q do |f| %>
+    <%= f.label :日本語 %>
+    <%= f.search_field :japanese_cont %>
+    <%= f.submit %>
+    <% end %>
+    <%= button_to "新規作成", :action => "new" %>
+</div>
+<table border="1" width = "600" bordercolor= "#000000" cellpadding="5">
+    <tr bgcolor = "#9DCCE0">
+        <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［口語/文語］</td><td>［備考］</td>
+    </tr>
+    <% @words.each do |word| %>
+    <tr>
+        <td><%= word.japanese %></td>
+        <td><%= word.part_of_speech %></td>
+        <td><%= word.thai %></td>
+        <td><%= word.verbal_system %></td>
+        <td><%= word.remarks %></td>
+    </tr>
+    <% end %>
+</table>
