@@ -41,10 +41,15 @@ class WordsController < ApplicationController
    
    # インポート機能 （TBD:必要か？)
    def add
-    @words = Trancelate.all
-  end
+       @words = Word.all
+   end
    
-   
+   def tag
+       @words = Word.tagged_with(params[:name])
+       @tags = Word.tag_counts_on(:tags)
+       
+       render 'index'
+   end
 
 private
     def word_params

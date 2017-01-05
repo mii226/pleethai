@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   
   post "words/new"
   
-  resources :words
+  resources :words do # => tagアクションを追加しました。
+    collection do
+      get 'tag'
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
