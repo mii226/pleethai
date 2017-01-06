@@ -1,8 +1,8 @@
 class WordsController < ApplicationController
   # 初期表示(TBD:タグとの連携、検索ロジックとの連携)
    def index
-       @q = Word.ransack(params[:q])
-       @words = @q.result.page(params[:page]).per(10)
+       @words = Word.page(params[:page])
+       @title = '全件' 
    end
    # データを閲覧する画面を表示する (TBD:必要か？)
    def show
@@ -46,13 +46,13 @@ class WordsController < ApplicationController
    
    def tag
        @words = Word.tagged_with(params[:name])
-       @tags = Word.tag_counts_on(:tags)
+       @title = '検索タグ : ' + params[:name] 
        
        render 'index'
    end
 
 private
     def word_params
-        params.require(:word).permit(:japanese, :thai, :english, :part_of_speech, :verbal_system, :remarks, :favorits)
+        params.require(:word).permit(:japanese, :thai, :english, :part_of_speech, :verbal_system, :remarks, :favorits, :tag_list)
     end
 end

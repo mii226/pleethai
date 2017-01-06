@@ -18,3 +18,21 @@
 .css2 { font-size: 1.2em; }
 .css3 { font-size: 1.4em; }
 .css4 { font-size: 1.6em; }
+
+header .container {
+    margin-top: 15%;
+}
+.jumbotron {
+  background-image: url("mainpage.jpg");
+  background-position: center center;
+  background-size: cover;
+  color: #fff;
+}
+.navbar-form {
+ padding-right: 30px;
+}
+.cm_image img{
+  width: 300px;
+  height: 300px;
+  border: solid 1px #999999;
+}
