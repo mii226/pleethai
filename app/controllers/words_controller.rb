@@ -1,9 +1,11 @@
 class WordsController < ApplicationController
   # 初期表示(TBD:タグとの連携、検索ロジックとの連携)
    def index
+       Word.order(:favorits)
        @words = Word.page(params[:page])
        @title = '全件' 
    end
+   
    # データを閲覧する画面を表示する (TBD:必要か？)
    def show
    end
@@ -45,7 +47,8 @@ class WordsController < ApplicationController
    end
    
    def tag
-       @words = Word.tagged_with(params[:name])
+       Word.order(:favorits)
+       @words = Word.tagged_with(params[:name]).page(params[:page])
        @title = '検索タグ : ' + params[:name] 
        
        render 'index'
