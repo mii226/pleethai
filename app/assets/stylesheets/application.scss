@@ -14,16 +14,7 @@
  *= require_tree .
  *= require_self
  */
-.css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
 
-.cm_image img{
-  width: 300px;
-  height: 300px;
-  border: solid 1px #999999;
-}
 
 body {
     background: url('photo.jpg') no-repeat center center fixed;
@@ -131,6 +122,44 @@ footer p {
     padding: 50px 0;
 }
 
+.animate {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.words-search {
+	display: none;
+}
+.words-search .form-control {
+	border-radius: 0px;
+	border-width: 0px;
+	font-size: 24px;
+	padding: 30px 0px;
+}
+
+.words-search .form-control:focus {
+	border-color: transparent;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.words-search .input-group-btn > .btn {
+	padding: 14px 16px;
+	border-radius: 0px;
+}
+.words-search .input-group-btn > .btn.active,
+.words-search .input-group-btn > .btn:hover,
+.words-search .input-group-btn > .btn:focus {
+	padding: 14px 16px 14px 15px;
+}
+
+.nav-padding {
+	padding-top: 61px;
+}
+
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -197,6 +226,36 @@ footer p {
         table-layout: fixed;
         font-size: 1.25em;
     }
+    
+	.words-search {
+		display: block;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		-webkit-transform: rotateX(-90deg);
+		-moz-transform: rotateX(-90deg);
+		-o-transform: rotateX(-90deg);
+		-ms-transform: rotateX(-90deg);
+		transform: rotateX(-90deg);
+		-webkit-transform-origin: 0 0 0;
+		-moz-transform-origin: 0 0 0;
+		-o-transform-origin: 0 0 0;
+		-ms-transform-origin: 0 0 0;
+		transform-origin: 0 0 0;
+		visibility: hidden;
+	}
+	.words-search.open {
+	    background: rgb(248, 248, 248);
+		-webkit-transform: rotateX(0deg);
+		-moz-transform: rotateX(0deg);
+		-o-transform: rotateX(0deg);
+		-ms-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+		visibility: visible;	
+	}
+	.words-search > .container {
+		padding: 0px;
+	}    
 }
 
 @media screen and (min-width:1200px) {
