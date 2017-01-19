@@ -17,7 +17,7 @@
                 <td><%= word.part_of_speech %></td>
                 <td><%= word.thai %></td>
                 <td><%= word.verbal_system %></td>
-                <td><%= word.tag_list %></td>
+                <td><%= render 'words/tag_list', tag_list: word.tag_list %></td>
             </tr>
             <tr>
                 <td colspan="5" style="padding:0px">

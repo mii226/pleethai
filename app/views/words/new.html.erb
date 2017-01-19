@@ -14,7 +14,7 @@
      <%= f.select :verbal_system, Word.verbal_systems.keys %>
    </div>
    <div>
-      <%= text_field_tag 'word[tag_list]', @word.tag_list.join(',') %>
+      <%= text_field_tag 'word[tag_list]', @word.tag_list.join(','), "data-role" => "tagsinput"  %>
    </div>
    <div>
      <%= f.text_area :remarks %>
