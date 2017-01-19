@@ -3,7 +3,7 @@
     <div class="panel-heading"><%= @title %></div>
     <div class="panel-body">
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" style="word-wrap:break-word">
                 <thead>
             <tr>
                 <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［口語/文語］</td><td>［タグ］</td>
@@ -13,11 +13,11 @@
             <tbody>
             <% @words.each do |word| %>
             <tr class="item-done clickable" data-toggle="collapse" data-target=#<%= count.to_s %>>
-                <td><%= word.japanese %></td>
-                <td><%= word.part_of_speech %></td>
-                <td><%= word.thai %></td>
-                <td><%= word.verbal_system %></td>
-                <td><%= render 'words/tag_list', tag_list: word.tag_list %></td>
+                <td class="col-xs-3"><%= word.japanese %></td>
+                <td class="col-xs-2"><%= word.part_of_speech %></td>
+                <td class="col-xs-3"><%= word.thai %></td>
+                <td class="col-xs-2"><%= word.verbal_system %></td>
+                <td class="col-xs-2"><%= render 'words/tag_list', tag_list: word.tag_list %></td>
             </tr>
             <tr>
                 <td colspan="5" style="padding:0px">

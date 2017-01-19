@@ -15,7 +15,7 @@
  *= require_self
  *= require bootstrap-tagsinput
  */
-
+@import "honoka/variables";
 
 body {
     background: url('photo.jpg') no-repeat center center fixed;
@@ -138,7 +138,7 @@ footer p {
 	border-radius: 0px;
 	border-width: 0px;
 	font-size: 24px;
-	padding: 30px 0px;
+	padding: 30px 20px;
 }
 
 .words-search .form-control:focus {
@@ -148,13 +148,13 @@ footer p {
 	box-shadow: none;
 }
 .words-search .input-group-btn > .btn {
-	padding: 14px 16px;
+	padding: 17px 16px;
 	border-radius: 0px;
 }
 .words-search .input-group-btn > .btn.active,
 .words-search .input-group-btn > .btn:hover,
 .words-search .input-group-btn > .btn:focus {
-	padding: 14px 16px 14px 15px;
+	padding: 17px 16px 17px 15px;
 }
 
 .nav-padding {
@@ -246,7 +246,7 @@ footer p {
 		visibility: hidden;
 	}
 	.words-search.open {
-	    background: rgb(248, 248, 248);
+	    background-color: $brand-primary;
 		-webkit-transform: rotateX(0deg);
 		-moz-transform: rotateX(0deg);
 		-o-transform: rotateX(0deg);
