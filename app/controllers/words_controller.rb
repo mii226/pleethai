@@ -46,6 +46,9 @@ class WordsController < ApplicationController
        @words = Word.all
    end
    
+   def show_fonts_list
+   end
+   
    def tag
        Word.order(:favorits)
        @words = Word.tagged_with(params[:name]).page(params[:page])

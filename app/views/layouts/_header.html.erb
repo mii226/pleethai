@@ -30,13 +30,13 @@
 						</form>
 					</li>
                     <li class="hidden-xs">
-                        <a href="#toggle-search" class="animate">単語検索</a>
+                        <%= link_to '単語検索', "#toggle-search", :class => 'animate' %>
                     </li>
                     <li>
                         <a href="#">例文一覧</a>
                     </li>
                     <li>
-                        <a href="#">タイ語フォント一覧</a>
+                        <%= link_to 'タイ語フォント一覧', words_show_fonts_list_path %>
                     </li>
                 </ul>
             </div>

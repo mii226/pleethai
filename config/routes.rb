@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   post "words/new"
   
+  get "words/show_fonts_list"
+  
   resources :words do # => tagアクションを追加しました。
     collection do
       get 'tag'
