@@ -18,19 +18,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="[ visible-xs ]">
-						<form action="#" method="GET" role="search">
-							<div class="[ input-group ]">
-								<input type="text" class="[ form-control ]" name="q" placeholder="日本語またはタイ語">
-								<span class="[ input-group-btn ]">
-									<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-									<button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button>
-								</span>
-							</div>
-						</form>
-					</li>
-                    <li class="hidden-xs">
-                        <%= link_to '単語検索', "#toggle-search", :class => 'animate' %>
+                    <li>
+                        <a aria-controls="collapseOne" aria-expanded="true" href="#collapseOne" data-parent="#accordion" data-toggle="collapse" role="button">
+                            単語検索
+                        </a>
                     </li>
                     <li>
                         <a href="#">例文一覧</a>
@@ -46,7 +37,7 @@
 			<div class="[ container ]">
 				<form action="#" method="GET" role="search">
 					<div class="[ input-group ]">
-						<input type="text" class="[ form-control ]" name="q" placeholder="日本語またはタイ語">
+						<input type="text" class="[ form-control ]" name="q" placeholder="日本語、タイ語または英語">
 						<span class="[ input-group-btn ]">
 							<button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 						</span>
@@ -55,28 +46,19 @@
 			</div>
 		</div>
         <!-- /.container -->
+        <div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse" id="collapseOne">
+            <%= search_form_for @q do |f| %>
+					<div class="form-horizontal">
+					        <div class=" col-sm-2"></div>
+							<div class=" col-sm-8">
+							  <%= f.search_field :japanese_or_thai_or_english_cont, :class => 'form-control input-md', :placeholder => '日本語、タイ語または英語' %>
+							</div>
+							<div class=" col-sm-2">
+							    <%= button_tag :type => "submit", :class =>"btn btn-primary btn-md" do %>
+							    <span class="glyphicon glyphicon-search"></span>
+							    <% end %>
+							</div>
+  					  </div>
+        <% end %>
+      </div>
     </nav>
-    
-    <script>
-    $(function() { 
-        $('a[href="#toggle-search"], .navbar-default .words-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
-        event.preventDefault();
-		$('.navbar-default .words-search .input-group > input').val('');
-		$('.navbar-default .words-search').toggleClass('open');
-		$('a[href="#toggle-search"]').closest('li').toggleClass('active');
-
-		if ($('.navbar-default .words-search').hasClass('open')) {
-			setTimeout(function() { 
-				$('.navbar-default .words-search .form-control').focus();
-			}, 100);
-		}			
-	});
-
-	$(document).on('keyup', function(event) {
-		if (event.which == 27 && $('navbar-default .words-search').hasClass('open')) {
-			$('a[href="#toggle-search"]').trigger('click');
-		}
-	});
-    
-});
-    </script>

@@ -2,8 +2,13 @@ class WordsController < ApplicationController
   # 初期表示(TBD:タグとの連携、検索ロジックとの連携)
    def index
        Word.order(:favorits)
-       @words = Word.page(params[:page])
-       @title = '全件' 
+       @q = Word.search(params[:q])
+       @words = @q.result(distinct: true).page(params[:page])
+       if params[:q].nil?
+           @title = "全件"
+       else 
+           @title = "検索結果"
+       end
    end
    
    # データを閲覧する画面を表示する (TBD:必要か？)
@@ -47,10 +52,12 @@ class WordsController < ApplicationController
    end
    
    def show_fonts_list
+       @q = Word.search(params[:q])
    end
    
    def tag
        Word.order(:favorits)
+       @q = Word.search(params[:q])
        @words = Word.tagged_with(params[:name]).page(params[:page])
        @title = '検索タグ : ' + params[:name] 
        
