@@ -1,4 +1,13 @@
 class WordsController < ApplicationController
+    
+    # not found 時にルートに飛ばす
+    rescue_from ActiveRecord::RecordNotFound, with: :redirect_404
+    rescue_from ActionController::RoutingError, with: :redirect_404
+    
+    def redirect_404
+        redirect_to root_path
+    end
+    
   # 初期表示(TBD:タグとの連携、検索ロジックとの連携)
    def index
        Word.order(:favorits)
@@ -7,7 +16,7 @@ class WordsController < ApplicationController
        if params[:q].nil?
            @title = "全件"
        else 
-           @title = "検索結果"
+           @title = "検索結果 : #{params[:q][:japanese_or_thai_or_english_cont]}"
        end
    end
    
