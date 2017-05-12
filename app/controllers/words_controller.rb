@@ -63,6 +63,10 @@ class WordsController < ApplicationController
        
        render 'index'
    end
+   def show_example_list
+      @q = Word.search(params[:q])
+      @records = YAML.load_file("app/assets/documents/example_list.yml")
+   end
 
 private
     def word_params

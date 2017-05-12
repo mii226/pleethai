@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post "words/new"
   
   get "words/show_fonts_list"
+  get "words/show_example_list"
   
   resources :words do # => tagアクションを追加しました。
     collection do
