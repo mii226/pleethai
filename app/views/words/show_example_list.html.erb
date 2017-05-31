@@ -1,0 +1,12 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">例文一覧</div>
+    <div class="panel-body">
+        <table class="table" style="word-wrap:break-word">
+            <% @records.each do |record| -%>
+                <td class="col-xs-6"><%= record['japanese'] %></td>
+                <td class="col-xs-6"><%= record['thai'] %></td>
+            </tr>
+        　　<% end -%>
+        </table>
+    </div>
+</div>

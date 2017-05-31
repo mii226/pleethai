@@ -1,22 +1,49 @@
-<div>
-    <%= search_form_for @q do |f| %>
-    <%= f.label :日本語 %>
-    <%= f.search_field :japanese_cont %>
-    <%= f.submit %>
-    <% end %>
-    <%= button_to "新規作成", :action => "new" %>
+
+<div class="panel panel-primary">
+    <div class="panel-heading"><%= @title %></div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table" style="word-wrap:break-word">
+                <thead>
+            <tr>
+                <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［英語］</td><td></td>
+            </tr>
+            </thead>
+            <% count = 1 %>
+            <tbody>
+            <% @words.each do |word| %>
+            <tr class="item-done clickable" data-toggle="collapse" data-target=#<%= count.to_s %>>
+                <td class="col-xs-3"><%= word.japanese %></td>
+                <td class="col-xs-2"><%= word.part_of_speech %></td>
+                <td class="col-xs-3"><%= word.thai %></td>
+                <td class="col-xs-3"><%= word.english %></td>
+                <td class="col-xs-1"><span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </tr>
+            <tr>
+                <td colspan="5" style="padding:0px">
+                
+            <div id=<%= count.to_s %> class="collapse">
+                  <div class="panel-body">
+                  <div class="text-muted col-xs-9">
+                  <% if word.remarks.nil? then %>
+                  <%= "なし" %>
+                  <% else %>
+                  <%= word.remarks %>
+                  <% end %>
+                  </div>
+                  <div class="col-xs-3">
+                      <%= render 'words/tag_list', tag_list: word.tag_list %>
+                  </div>
+            </div>
+          </div>
+            </td>
+            </tr>
+            <% count = count+1 %>
+            <% end %>
+            <tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<table border="1" width = "600" bordercolor= "#000000" cellpadding="5">
-    <tr bgcolor = "#9DCCE0">
-        <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［口語/文語］</td><td>［備考］</td>
-    </tr>
-    <% @words.each do |word| %>
-    <tr>
-        <td><%= word.japanese %></td>
-        <td><%= word.part_of_speech %></td>
-        <td><%= word.thai %></td>
-        <td><%= word.verbal_system %></td>
-        <td><%= word.remarks %></td>
-    </tr>
-    <% end %>
-</table>
+
+<%= paginate @words %>

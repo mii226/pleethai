@@ -1,0 +1,64 @@
+<div class="brand">ぷれータイ</div>
+    <div class="address-bar">タイ在住日本人によるタイ日辞書サイトです</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" >ぷれータイ</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a aria-controls="collapseOne" aria-expanded="true" href="#collapseOne" data-parent="#accordion" data-toggle="collapse" role="button">
+                            単語検索
+                        </a>
+                    </li>
+                    <li>
+                        <%= link_to '例文一覧', words_show_example_list_path %>
+                    </li>
+                    <li>
+                        <%= link_to 'タイ語フォント一覧', words_show_fonts_list_path %>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <div class="[ words-search animate ]">
+			<div class="[ container ]">
+				<form action="#" method="GET" role="search">
+					<div class="[ input-group ]">
+						<input type="text" class="[ form-control ]" name="q" placeholder="日本語、タイ語または英語">
+						<span class="[ input-group-btn ]">
+							<button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+        <!-- /.container -->
+        <div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse" id="collapseOne">
+            <%= search_form_for @q do |f| %>
+					<div class="form-horizontal">
+					        <div class=" col-sm-2"></div>
+							<div class=" col-sm-8">
+							  <%= f.search_field :japanese_or_thai_or_english_cont, :class => 'form-control input-md', :placeholder => '日本語、タイ語または英語' %>
+							</div>
+							<div class=" col-sm-2">
+							    <%= button_tag :type => "submit", :class =>"btn btn-primary btn-md" do %>
+							    <span class="glyphicon glyphicon-search"></span>
+							    <% end %>
+							</div>
+  					  </div>
+        <% end %>
+      </div>
+    </nav>

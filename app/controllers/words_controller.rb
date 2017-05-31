@@ -1,9 +1,25 @@
 class WordsController < ApplicationController
+    
+    # not found 時にルートに飛ばす
+    rescue_from ActiveRecord::RecordNotFound, with: :redirect_404
+    rescue_from ActionController::RoutingError, with: :redirect_404
+    
+    def redirect_404
+        redirect_to root_path
+    end
+    
   # 初期表示(TBD:タグとの連携、検索ロジックとの連携)
    def index
-       @q = Word.ransack(params[:q])
-       @words = @q.result.page(params[:page]).per(10)
+       Word.order(:favorits)
+       @q = Word.search(params[:q])
+       @words = @q.result(distinct: true).page(params[:page])
+       if params[:q].nil?
+           @title = "全件"
+       else 
+           @title = "検索結果 : #{params[:q][:japanese_or_thai_or_english_cont]}"
+       end
    end
+   
    # データを閲覧する画面を表示する (TBD:必要か？)
    def show
    end
@@ -41,13 +57,28 @@ class WordsController < ApplicationController
    
    # インポート機能 （TBD:必要か？)
    def add
-    @words = Trancelate.all
-  end
+       @words = Word.all
+   end
    
+   def show_fonts_list
+       @q = Word.search(params[:q])
+   end
    
+   def tag
+       Word.order(:favorits)
+       @q = Word.search(params[:q])
+       @words = Word.tagged_with(params[:name]).page(params[:page])
+       @title = '検索タグ : ' + params[:name] 
+       
+       render 'index'
+   end
+   def show_example_list
+      @q = Word.search(params[:q])
+      @records = YAML.load_file("app/assets/documents/example_list.yml")
+   end
 
 private
     def word_params
-        params.require(:word).permit(:japanese, :thai, :english, :part_of_speech, :verbal_system, :remarks, :favorits)
+        params.require(:word).permit(:japanese, :thai, :english, :part_of_speech, :verbal_system, :remarks, :favorits, :tag_list)
     end
 end

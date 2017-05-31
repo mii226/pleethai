@@ -7,8 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-<%= yield %>
+<%= render 'layouts/header' %>
+<div class="container-fluid" background-color="0xffffff">
+    <div class="row">
+        <div class="col-md-9 col-xs-12">
+            <%= yield %>
+        </div>
+        <div class="col-md-3 col-xs-12">
+            <amp-img src="photo.jpg" layout="fixed-height" height="300"></amp-img>
+            
+            <div class="cm_image">
+                <%= image_tag 'noimage.jpg' %>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">関連タグ</div>
+                    <div id="bs-component">
+                        <ul class="breadcrumb">
+                            <% tag_cloud(Word.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+                            <li>
+                                <%= link_to tag.name, { :action => :tag, :name => tag.name }, :class => css_class %>
+                            </li>
+                            <% end %>
+                        </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
 
 </body>
 </html>
