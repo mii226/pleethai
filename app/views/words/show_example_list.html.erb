@@ -1,12 +1,23 @@
 <div class="panel panel-primary">
     <div class="panel-heading">例文一覧</div>
     <div class="panel-body">
+        <div class="table-responsive">
         <table class="table" style="word-wrap:break-word">
-            <% @records.each do |record| -%>
-                <td class="col-xs-6"><%= record['japanese'] %></td>
-                <td class="col-xs-6"><%= record['thai'] %></td>
-            </tr>
+            <thead>
+                <tr>
+                    <td>［日本語］</td><td>［タイ語］</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% @records.each do |record| -%>
+                    <td class="col-xs-6"><%= record['japanese'] %></td>
+                    <td class="col-xs-6"><%= record['thai'] %></td>
+                </tr>
+            </tbody>
         　　<% end -%>
         </table>
     </div>
+    </div>
 </div>
+<%= paginate @records %>
