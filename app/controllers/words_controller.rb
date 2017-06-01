@@ -74,7 +74,8 @@ class WordsController < ApplicationController
    end
    def show_example_list
       @q = Word.search(params[:q])
-      @records = YAML.load_file("app/assets/documents/example_list.yml")
+      @array = YAML.load_file("app/assets/documents/example_list.yml")
+      @records = Kaminari.paginate_array(@array).page(params[:page])
    end
 
 private
