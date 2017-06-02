@@ -57,7 +57,14 @@ class WordsController < ApplicationController
    
    # インポート機能 （TBD:必要か？)
    def add
+       @q = Word.search(params[:q])
        @words = Word.all
+   end
+   
+   def import
+       @q = Word.search(params[:q])
+       Word.import(params[:file])
+       redirect_to root_path
    end
    
    def show_fonts_list

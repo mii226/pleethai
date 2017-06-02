@@ -5,11 +5,16 @@ Rails.application.routes.draw do
   
   get "words/show_fonts_list"
   get "words/show_example_list"
+  get "words/add"
   
   resources :words do # => tagアクションを追加しました。
     collection do
       get 'tag'
     end
+  end
+  
+  resources 'words', only: :index do
+    collection { post :import }
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -19,23 +19,10 @@
             <div class="cm_image">
                 <%= image_tag 'noimage.jpg' %>
             </div>
-            <div class="panel panel-primary">
-                <div class="panel-heading">関連タグ</div>
-                    <div id="bs-component">
-                        <ul class="breadcrumb">
-                            <% tag_cloud(Word.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                            <li>
-                                <%= link_to tag.name, { :action => :tag, :name => tag.name }, :class => css_class %>
-                            </li>
-                            <% end %>
-                        </ul>
-                </div>
-            </div>
-            
         </div>
         
     </div>
 </div>
-
+<%= render 'layouts/footer' %>
 </body>
 </html>
