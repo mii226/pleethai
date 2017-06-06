@@ -1,48 +1,88 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">単語検索</div>
+    <div class="panel-body">
+        <%= search_form_for @q do |f| %>
+					<div class="form-horizontal">
+							<div class=" col-xs-11">
+							  <%= f.search_field :japanese_or_thai_or_english_cont, :class => 'form-control input-md', :placeholder => '日本語、タイ語または英語' %>
+							</div>
+							<div class=" col-xs-1">
+							    <%= button_tag :type => "submit", :class =>"btn btn-primary btn-md" do %>
+							    <span class="glyphicon glyphicon-search"></span>
+							    <% end %>
+							</div>
+  					  </div>
+        <% end %>
+        </div>
+</div>
+
+<!--<div class="panel panel-primary">-->
+<!--<div class="panel-heading">-->
+<!--<a aria-controls="collapseOne" aria-expanded="true" href="#collapseOne" data-parent="#accordion" data-toggle="collapse" role="button">-->
+<!--                            単語検索-->
+<!--                        </a></div>-->
+<!--    <div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse" id="collapseOne">-->
+<!--        <div class="panel-body">-->
+<!--            <%= search_form_for @q do |f| %>-->
+<!--					<div class="form-horizontal">-->
+<!--					        <div class=" col-sm-2"></div>-->
+<!--							<div class=" col-sm-8">-->
+<!--							  <%= f.search_field :japanese_or_thai_or_english_cont, :class => 'form-control input-md', :placeholder => '日本語、タイ語または英語' %>-->
+<!--							</div>-->
+<!--							<div class=" col-sm-2">-->
+<!--							    <%= button_tag :type => "submit", :class =>"btn btn-primary btn-md" do %>-->
+<!--							    <span class="glyphicon glyphicon-search"></span>-->
+<!--							    <% end %>-->
+<!--							</div>-->
+<!--  					  </div>-->
+<!--        <% end %>-->
+<!--      </div>-->
+<!--      </div>-->
+<!--      </div>-->
 
 <div class="panel panel-primary">
     <div class="panel-heading"><%= @title %></div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table" style="word-wrap:break-word">
-            <thead>
-            <tr>
-                <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［英語］</td><td></td>
-            </tr>
-            <% count = 1 %>
-            <tbody>
-            <% @words.each do |word| %>
-            <tr class="item-done clickable" data-toggle="collapse" data-target=#<%= count.to_s %>>
-                <td class="col-xs-3"><%= word.japanese %></td>
-                <td class="col-xs-2"><%= word.part_of_speech %></td>
-                <td class="col-xs-3"><%= word.thai %></td>
-                <td class="col-xs-3"><%= word.english %></td>
-                <td class="col-xs-1"><span class="pull-right glyphicon glyphicon-chevron-down"></span>
-            </tr>
-            <tr>
-                <td colspan="5" style="padding:0px">
-                
-            <div id=<%= count.to_s %> class="collapse">
-                  <div class="panel-body">
-                  <div class="text-muted col-xs-9">
-                  <% if word.remarks.nil? then %>
-                  <%= "なし" %>
-                  <% else %>
-                  <%= word.remarks %>
-                  <% end %>
-                  </div>
-                  <div class="col-xs-3">
-                      <%= render 'words/tag_list', tag_list: word.tag_list %>
-                  </div>
-            </div>
-          </div>
-            </td>
-            </tr>
-            <% count = count+1 %>
-            <% end %>
-            <tbody>
+                <thead>
+                    <tr>
+                        <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［英語］</td><td></td>
+                    </tr>
+                </thead>
+                <% count = 1 %>
+                <tbody>
+                    <% @words.each do |word| %>
+                    <tr class="item-done clickable" data-toggle="collapse" data-target=#<%= count.to_s %>>
+                        <td class="col-xs-3"><%= word.japanese %></td>
+                        <td class="col-xs-2"><%= word.part_of_speech %></td>
+                        <td class="col-xs-3"><%= word.thai %></td>
+                        <td class="col-xs-3"><%= word.english %></td>
+                        <td class="col-xs-1"><span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="padding:0px">
+                            <div id=<%= count.to_s %> class="collapse">
+                                <div class="panel-body">
+                                    <div class="text-muted col-xs-9">
+                                      <% if word.remarks.nil? then %>
+                                      <%= "なし" %>
+                                      <% else %>
+                                      <%= word.remarks %>
+                                      <% end %>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <%= render 'words/tag_list', tag_list: word.tag_list %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <% count = count+1 %>
+                </tbody>
+                <% end %>
             </table>
         </div>
     </div>
 </div>
-
 <%= paginate @words %>
