@@ -10,12 +10,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <% @records.each do |record| -%>
-                    <td class="col-xs-6"><%= record['japanese'] %></td>
-                    <td class="col-xs-6"><%= record['thai'] %></td>
+                    <% @records.each do |record| %>
+                    <td class="col-xs-6"><%= record["japanese"] %></td>
+                    <td class="col-xs-6"><%= record["thai"] %></td>
                 </tr>
+                <% end %>
             </tbody>
-        　　<% end -%>
         </table>
     </div>
     </div>

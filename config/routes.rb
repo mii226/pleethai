@@ -1,15 +1,30 @@
 Rails.application.routes.draw do
+  get 'contact/index'
+
   root "words#index"
   
   post "words/new"
   
   get "words/show_fonts_list"
   get "words/show_example_list"
+  get "words/add"
   
   resources :words do # => tagアクションを追加しました。
     collection do
       get 'tag'
     end
+  end
+  
+  resources 'words', only: :index do
+    collection { post :import }
+  end
+  
+  get 'contact' => 'contact#index'
+  post 'contact/confirm' => 'contact#confirm'
+  post 'contact/thanks' => 'contact#thanks'
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

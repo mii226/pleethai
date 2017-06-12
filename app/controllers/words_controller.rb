@@ -60,8 +60,12 @@ class WordsController < ApplicationController
        @words = Word.all
    end
    
+   def import
+       Word.import(params[:file])
+       redirect_to root_path
+   end
+   
    def show_fonts_list
-       @q = Word.search(params[:q])
    end
    
    def tag
@@ -73,7 +77,6 @@ class WordsController < ApplicationController
        render 'index'
    end
    def show_example_list
-      @q = Word.search(params[:q])
       @array = YAML.load_file("app/assets/documents/example_list.yml")
       @records = Kaminari.paginate_array(@array).page(params[:page])
    end

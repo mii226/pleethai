@@ -1,2 +1,4 @@
-<h1>Words#add</h1>
-<p>TBD</p>
+<%= form_tag({controller: "words", action: "import", method: "post"}, {multipart: true}) do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "オブジェクトを一括インポート" %>
+<% end %>

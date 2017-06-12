@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">リクエストフォーム</div>
+    <div class="panel-body">
+      <%= form_for @contact, :url => contact_confirm_path do |f| %>     
+  <% if @contact.errors.any? %>
+      <div class="text-danger">
+      <strong>入力内容にエラーがあります</strong>
+      <ul>
+        <% @contact.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+      </div>
+  <% end %>
+  <div class="form-horizontal">
+    <div class="form-group">
+							<div class=" col-xs-3">名前（必須）</div>
+							<div class=" col-xs-9"><%= f.text_field :name, :class => 'form-control input-md', :placeholder => 'お名前' %></div>
+		</div>
+		<div class="form-group">
+							<div class=" col-xs-3">メールアドレス（必須）</div>
+							<div class=" col-xs-9"><%= f.text_field :email, :class => 'form-control input-md', :placeholder => 'メールアドレス' %></div>
+		</div>
+		<div class="form-group">
+							<div class=" col-xs-3">リクエスト内容</div>
+							<div class=" col-xs-9"><%= f.text_area :message, :class => 'form-control input-md', :placeholder => 'リクエスト' %></div>
+		</div>
+  </div>
+  <%= f.submit '確認' %>
+<% end %>
+</div>
+</div>
