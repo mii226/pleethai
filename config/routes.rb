@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact/index'
+
   root "words#index"
   
   post "words/new"
@@ -15,6 +17,14 @@ Rails.application.routes.draw do
   
   resources 'words', only: :index do
     collection { post :import }
+  end
+  
+  get 'contact' => 'contact#index'
+  post 'contact/confirm' => 'contact#confirm'
+  post 'contact/thanks' => 'contact#thanks'
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
