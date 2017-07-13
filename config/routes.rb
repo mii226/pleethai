@@ -1,3 +1,36 @@
+# == Route Map
+#
+#                  Prefix Verb   URI Pattern                        Controller#Action
+#           contact_index GET    /contact/index(.:format)           contact#index
+#                    root GET    /                                  words#index
+#               words_new POST   /words/new(.:format)               words#new
+#   words_show_fonts_list GET    /words/show_fonts_list(.:format)   words#show_fonts_list
+# words_show_example_list GET    /words/show_example_list(.:format) words#show_example_list
+#               words_add GET    /words/add(.:format)               words#add
+#               tag_words GET    /words/tag(.:format)               words#tag
+#                   words GET    /words(.:format)                   words#index
+#                         POST   /words(.:format)                   words#create
+#                new_word GET    /words/new(.:format)               words#new
+#               edit_word GET    /words/:id/edit(.:format)          words#edit
+#                    word GET    /words/:id(.:format)               words#show
+#                         PATCH  /words/:id(.:format)               words#update
+#                         PUT    /words/:id(.:format)               words#update
+#                         DELETE /words/:id(.:format)               words#destroy
+#            import_words POST   /words/import(.:format)            words#import
+#                         GET    /words(.:format)                   words#index
+#                 contact GET    /contact(.:format)                 contact#index
+#         contact_confirm POST   /contact/confirm(.:format)         contact#confirm
+#          contact_thanks POST   /contact/thanks(.:format)          contact#thanks
+#       letter_opener_web        /letter_opener                     LetterOpenerWeb::Engine
+#
+# Routes for LetterOpenerWeb::Engine:
+# clear_letters DELETE /clear(.:format)                 letter_opener_web/letters#clear
+# delete_letter DELETE /:id(.:format)                   letter_opener_web/letters#destroy
+#       letters GET    /                                letter_opener_web/letters#index
+#        letter GET    /:id(/:style)(.:format)          letter_opener_web/letters#show
+#               GET    /:id/attachments/:file(.:format) letter_opener_web/letters#attachment
+#
+
 Rails.application.routes.draw do
   get 'contact/index'
 

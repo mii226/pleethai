@@ -47,6 +47,7 @@ gem 'bootstrap_form'
 # Output schema of DB and rooting information   
 gem 'annotate'
 
+gem "recaptcha", require: "recaptcha/rails"
 # <===== add end
 
 # Use ActiveModel has_secure_password
@@ -76,6 +77,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener_web'
-  
+  gem 'dotenv-rails'
   # <===== add end
 end

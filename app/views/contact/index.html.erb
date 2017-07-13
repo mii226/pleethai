@@ -25,6 +25,9 @@
 							<div class=" col-xs-3">リクエスト内容</div>
 							<div class=" col-xs-9"><%= f.text_area :message, :class => 'form-control input-md', :placeholder => 'リクエスト' %></div>
 		</div>
+		<div>
+		  <%= recaptcha_tags %><br>
+		</div>
   </div>
   <%= f.submit '確認' %>
 <% end %>

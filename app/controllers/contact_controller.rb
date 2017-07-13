@@ -6,7 +6,7 @@ class ContactController < ApplicationController
    
   def confirm
     @contact = Contact.new(params[:contact])
-    if @contact.valid?
+    if @contact.valid? && verify_recaptcha(model: @contact)
       render :action => 'confirm'
     else
       render :action => 'index'
