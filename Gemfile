@@ -25,9 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # =====> add start
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
-# 本番ではpostgressを使用する
-gem 'pg', group: :production
+gem 'sqlite3', groups: %w(test development), require: false
+gem 'pg', groups: %w(production), require: false
 
 # seach form package
 gem 'ransack'
