@@ -1,0 +1,44 @@
+{
+  "name": "dictionary_thai_forjocv",
+  "scripts": {
+  },
+  "env": {
+    "EMAIL_HIDDEN": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "PASSWORD_HIDDEN": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "RECAPTCHA_SECRET_KEY": {
+      "required": true
+    },
+    "RECAPTCHA_SITE_KEY": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
