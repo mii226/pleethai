@@ -19,15 +19,15 @@
     <div class="panel-heading"><%= @title %></div>
     <div class="panel-body">
         <div class="table-responsive">
+            <% if @words.any? %>
             <table class="table" style="word-wrap:break-word">
                 <thead>
                     <tr>
                         <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［英語］</td><td></td>
                     </tr>
                 </thead>
-                <% count = 1 %>
                 <tbody>
-                    <% @words.each do |word| %>
+                    <% @words.each_with_index do |word,count| %>
                     <tr class="item-done clickable" data-toggle="collapse" data-target=#<%= count.to_s %> style="cursor: pointer;">
                         <td class="col-xs-3"><%= word.japanese %></td>
                         <td class="col-xs-2"><%= word.part_of_speech %></td>
@@ -53,10 +53,13 @@
                             </div>
                         </td>
                     </tr>
-                    <% count = count+1 %>
+
                 </tbody>
                 <% end %>
             </table>
+            <% else %>
+                <div>見つかりませんでした。</div>
+            <% end %>
         </div>
     </div>
 </div>

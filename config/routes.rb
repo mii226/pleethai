@@ -3,7 +3,6 @@
 #                  Prefix Verb   URI Pattern                        Controller#Action
 #           contact_index GET    /contact/index(.:format)           contact#index
 #                    root GET    /                                  words#index
-#               words_new POST   /words/new(.:format)               words#new
 #   words_show_fonts_list GET    /words/show_fonts_list(.:format)   words#show_fonts_list
 # words_show_example_list GET    /words/show_example_list(.:format) words#show_example_list
 #               words_add GET    /words/add(.:format)               words#add
@@ -35,8 +34,6 @@ Rails.application.routes.draw do
   get 'contact/index'
 
   root "words#index"
-  
-  post "words/new"
   
   get "words/show_fonts_list"
   get "words/show_example_list"

@@ -3,8 +3,14 @@ class WordsController < ApplicationController
     # not found 時にルートに飛ばす
     rescue_from ActiveRecord::RecordNotFound, with: :redirect_404
     rescue_from ActionController::RoutingError, with: :redirect_404
+    rescue_from Exception, with: :render_500
+
     
     def redirect_404
+        redirect_to root_path
+    end
+    
+    def render_500
         redirect_to root_path
     end
     
@@ -20,40 +26,40 @@ class WordsController < ApplicationController
        end
    end
    
-   # データを閲覧する画面を表示する (TBD:必要か？)
-   def show
-   end
+#   # データを閲覧する画面を表示する (TBD:必要か？)
+#   def show
+#   end
    
-   # データを作成する画面を表示する
-   def new
-       @word= Word.new
-   end
+#   # データを作成する画面を表示する
+#   def new
+#       @word= Word.new
+#   end
    
-   # データを更新する画面を表示する　(TBD:必要か？)
-   def edit
-       @word = Word.find(params[:id])
-   end
+#   # データを更新する画面を表示する　(TBD:必要か？)
+#   def edit
+#       @word = Word.find(params[:id])
+#   end
    
-   # データを作成する　(TBD:遷移先、エラー時)
-   def create
-       @word = Word.new(word_params)
-       @word.save
-       redirect_to words_path
-   end
+#   # データを作成する　(TBD:遷移先、エラー時)
+#   def create
+#       @word = Word.new(word_params)
+#       @word.save
+#       redirect_to words_path
+#   end
    
-   # データを更新する　(TBD:遷移先、エラー時、必要か？)
-   def update
-       @word = Word.find(params[:id])
-       @word.update_attributes(word_params)
-       redirect_to words_path
-   end
+#   # データを更新する　(TBD:遷移先、エラー時、必要か？)
+#   def update
+#       @word = Word.find(params[:id])
+#       @word.update_attributes(word_params)
+#       redirect_to words_path
+#   end
    
-   # データを削除する　(TBD:遷移先、エラー時、不要か？)
-   def destroy
-       @word = Word.find(params[:id])
-       @word.destroy
-       redirect_to words_path
-   end
+#   # データを削除する　(TBD:遷移先、エラー時、不要か？)
+#   def destroy
+#       @word = Word.find(params[:id])
+#       @word.destroy
+#       redirect_to words_path
+#   end
    
    # インポート機能 （TBD:必要か？)
    def add
