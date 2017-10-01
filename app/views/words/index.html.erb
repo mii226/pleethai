@@ -20,42 +20,30 @@
     <div class="panel-body">
         <div class="table-responsive">
             <% if @words.any? %>
-            <table class="table" style="word-wrap:break-word">
-                <thead>
-                    <tr>
-                        <td>［日本語］</td><td>［品詞］</td><td>［タイ語］</td><td>［英語］</td><td></td>
-                    </tr>
-                </thead>
+            <table class="table table-striped" style="word-wrap:break-word">
                 <tbody>
                     <% @words.each_with_index do |word,count| %>
-                    <tr class="item-done clickable" data-toggle="collapse" data-target=#<%= count.to_s %> style="cursor: pointer;">
-                        <td class="col-xs-3"><%= word.japanese %></td>
-                        <td class="col-xs-2"><%= word.part_of_speech %></td>
-                        <td class="col-xs-3"><%= word.thai %></td>
-                        <td class="col-xs-3"><%= word.english %></td>
-                        <td class="col-xs-1"><span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    <tr data-toggle="collapse" data-target=<%= "#accordion" + count.to_s %> class="clickable">
+                        <td class="col-xs-5"><div class="thai"><div class="thai-word"><%= word.thai %></div><div><%= word.part_of_speech %></div></div></td>
+                        <td class="col-xs-4"><div class="content-area"><div class="japanese-word"><%= word.japanese %></div><div class="english-word"><%= word.english %></div></div></td>
+                        <td class="col-xs-3"><div class="content-area"><%= render 'words/tag_list', tag_list: word.tag_list %></div></td>
                     </tr>
                     <tr>
-                        <td colspan="5" style="padding:0px">
-                            <div id=<%= count.to_s %> class="collapse">
-                                <div class="panel-body">
-                                    <div class="text-muted col-xs-9">
-                                      <% if word.remarks.nil? then %>
-                                      <%= "なし" %>
-                                      <% else %>
-                                      <%= word.remarks %>
-                                      <% end %>
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <%= render 'words/tag_list', tag_list: word.tag_list %>
-                                    </div>
-                                </div>
+                        <td colspan="3" style="padding:0px">
+                            <div class="col-xs-1"></div>
+                            <div id=<%= "accordion" + count.to_s %> class="collapse remark text-muted col-xs-10">
+                                <% if word.remarks.nil? then %>
+                                なし 
+                                <% else %>
+                                <%= word.remarks %>
+                                <% end %>
                             </div>
                         </td>
                     </tr>
-
+                    
+                    <% end %>
                 </tbody>
-                <% end %>
+                
             </table>
             <% else %>
                 <div>見つかりませんでした。</div>

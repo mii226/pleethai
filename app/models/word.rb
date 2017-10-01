@@ -19,7 +19,7 @@ require 'csv'
 class Word < ActiveRecord::Base
     acts_as_taggable
     
-    enum part_of_speech: { "[N]": 0, "[Pron]": 1, "[V]": 2, "[Adj]": 3, "[Adv]":4, "[Aux]":5, "[Conj]":6, "[Prep]":7,"[Other]":9 }
+    enum part_of_speech: { "[Noun]": 0, "[Pronoun]": 1, "[Verb]": 2, "[Adjective]": 3, "[Adverb]":4, "[Auxiliary]":5, "[Conjunction]":6, "[Preposition]":7,"[Other]":9 }
     enum verbal_system: { "口語": 0, "文語": 1, "口語/文語":9 }
     
     paginates_per 20
