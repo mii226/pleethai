@@ -48,6 +48,13 @@ gem 'bootstrap_form'
 gem 'annotate'
 
 gem "recaptcha", require: "recaptcha/rails"
+
+# SEO
+gem 'meta-tags', :require => 'meta_tags'
+gem 'sitemap_generator'
+gem 'google-analytics-rails', '1.1.1'
+gem 'google-api-client', '~> 0.11'
+
 # <===== add end
 
 # Use ActiveModel has_secure_password

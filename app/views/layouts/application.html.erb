@@ -8,12 +8,25 @@
     enable_page_level_ads: true
     });
     </script>
+    <%= analytics_init if Rails.env.production? %>
+    <% set_meta_tags :site => 'ぷれータイ',
+               :description => 'Thai Dictionary タイ語 辞書.',
+               :keywords => 'タイ語, 辞書, 英語, Thai, Dictionary',
+               :open_graph => {
+                   :title => :title,
+                   :type  => :dictionary,
+                   :url   => 'http://www.pleethai.site',
+                   :locale => 'ja_JP'
+               },
+               :reverse => true %>
+<%= display_meta_tags %>
   <title>ぷれータイ</title>
   <meta name="viewport" content="width=device-width" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
+  
 </head>
 <body>
 <%= render 'layouts/header' %>
@@ -45,3 +58,4 @@
 </div>
 </body>
 </html>
+

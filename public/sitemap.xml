@@ -1,0 +1,4 @@
+# Development/Testの場合(pingをsearchエンジンに送付しない)
+$ rake sitemap:refresh:no_ping
+# Productionの場合(pingをsearchエンジンに送付する)
+$ rake sitemap:refresh

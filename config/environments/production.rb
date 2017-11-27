@@ -90,5 +90,7 @@ Rails.application.configure do
   :password => ENV["PASSWORD_HIDDEN"],
   :authentication => :plain,
   :enable_starttls_auto => true
+  
+  GA.tracker = "UA-104216775-2"
 }
 end
